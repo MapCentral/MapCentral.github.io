@@ -12,12 +12,21 @@
     <!--
     <a href="rbpmap/index.html" id="titleText">Testing World</a>
     -->
-    <a href="oczmap/index.html" id="titleText">Our Chill Zone</a>
+    <a href="oczmap/index.html" id="titleText" class="clickableText text">Our Chill Zone</a>
     <div id="bottomBar">
-        <div id="leftArrMap"></div>
-        <div id="rightArrMap"></div>
+        <div id="leftArrMap" class="clickable" onclick="mapLesser()">
+            <p class="innerText1">&#60</p>
+        </div>
+        <div id="rightArrMap" class="clickable" onclick="mapGreater()">
+            <p class="innerText2">&#62</p>
+        </div>
+        <p id="text" class="text"> Tony Rito --- --- --- --- want your map rendered? -> mapcentralstation@gmail.com --- --- --- --- The Overviewer 1.15.95</p>
     </div>
-    <div id="leftArrPhoto"></div>
-    <div id="rightArrPhoto"></div>
+    <div id="leftArrPhoto" class="clickable"></div>
+    <div id="rightArrPhoto" class="clickable"></div>
 </body> 
+
+<script>
+    var showing = document.getElementById('test');
+</script>
 </html>

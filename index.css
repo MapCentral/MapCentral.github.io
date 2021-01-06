@@ -12,11 +12,15 @@ body {
 }
 
 a {
+    
+} 
+
+.text {
     background: -webkit-linear-gradient(rgb(243, 228, 169), rgb(211, 183, 68));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-} 
+}
 
 #bottomBar {
     background-color:rgb(46, 46, 46);
@@ -34,11 +38,53 @@ a {
 }
 
 #leftArrMap {
-    background-color: -webkit-linear-gradient(rgb(243, 228, 169), rgb(211, 183, 68));
-    border-radius: 20px;
+    border-radius: 10px;
     height: 30px;
     width: 40px;
     position: absolute;
     left: 5px;
     top: 5px;
+    z-index: 1;
+}
+
+#rightArrMap {
+    border-radius: 10px;
+    height: 30px;
+    width: 40px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+}
+.clickable {
+    background: linear-gradient(rgb(243, 228, 169), rgb(211, 183, 68));
+}
+
+.clickable:hover {
+    background: linear-gradient(rgb(173, 154, 75), rgb(145, 118, 11));
+}
+
+#text {
+    position: absolute;
+    font-size: 25px;
+    top: -15px;
+    left: 50px;
+}
+
+.innerText1 {
+    color: black;
+    z-index: 2;
+    font-size: 35px;
+    position: absolute;
+    top: -40px;
+    left: 10px;
+}
+
+.innerText2 {
+    color: black;
+    z-index: 2;
+    font-size: 35px;
+    position: absolute;
+    top: -40px;
+    right: 10px;
 }
