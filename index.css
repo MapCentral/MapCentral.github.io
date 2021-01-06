@@ -34,5 +34,10 @@ a {
 }
 
 #leftArrMap {
-    
+    background-color: -webkit-linear-gradient(rgb(243, 228, 169), rgb(211, 183, 68));
+    border-radius: 20px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
 }
