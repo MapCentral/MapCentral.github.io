@@ -4,15 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css" />
+    <link type="text/css" rel="stylesheet" href="magicscroll/magicscroll.css"/>
+    <script type="text/javascript" src="magicscroll/magicscroll.js"></script>
+    <script src="jquery.js" type="text/javascript"></script>
     <link rel="icon" href="atlasGlobe.png" type="image/png">
 
     <title>Map Central Home</title>
 </head>
 <body>
-    <!--
-    <a href="rbpmap/index.html" id="titleText">Testing World</a>
-    -->
-    <a href="oczmap/index.html" id="titleText" class="clickableText text">Our Chill Zone</a>
+    <div id="backImg1" class="MagicScroll" data-options="mode: animation; items: 1; step: 1; speed: 500; autoplay: 7500; arrows: off">
+        <img src="oczmap/screenshots/spawn.png"/>
+        <img src="oczmap/screenshots/village.png"/>
+        <img src="oczmap/screenshots/water.png"/>
+        <img src="oczmap/screenshots/station.png"/>
+        <img src="oczmap/screenshots/pit.png"/>
+        <img src="oczmap/screenshots/pagoda.png"/>
+        <img src="oczmap/screenshots/night1.png"/>
+        <img src="oczmap/screenshots/nether1.png"/>
+        <img src="oczmap/screenshots/spire.png"/>
+        <img src="oczmap/screenshots/nether2.png"/>
+        <img src="oczmap/screenshots/beach.png"/>
+        <img src="oczmap/screenshots/grandhall.png"/>
+        <img src="oczmap/screenshots/hilltop.png"/>
+        <img src="oczmap/screenshots/night2.png"/>
+        <img src="oczmap/screenshots/spire2.png"/>
+        <img src="oczmap/screenshots/maginot.png"/>
+        <img src="oczmap/screenshots/bamboo.png"/>
+    </div>
+    <div id="backImg2" class="MagicScroll" data-options="mode: animation; items: 1; step: 1; speed: 500; autoplay: 7500; arrows: off">
+        <img src="rbpmap/screenshots/farmDay.png"/>
+        <img src="rbpmap/screenshots/houseDay.png"/>
+        <img src="rbpmap/screenshots/shackDay.png"/>
+        <img src="rbpmap/screenshots/sunDial.png"/>
+        <img src="rbpmap/screenshots/farmNight.png"/>
+        <img src="rbpmap/screenshots/houseNight.png"/>
+        <img src="rbpmap/screenshots/shackNight.png"/>
+    </div>
+    <a href="oczmap/index.html" id="OCZ" class="clickableText text" style = "display: none">Our Chill Zone</a>
+    <a href="rbpmap/index.html" id="RBP" class="clickableText text" style = "display: none">Reason Bone</a>
     <div id="bottomBar">
         <div id="leftArrMap" class="clickable" onclick="mapLesser()">
             <p class="innerText1">&#60</p>
@@ -22,11 +51,108 @@
         </div>
         <p id="text" class="text"> Tony Rito --- --- --- --- want your map rendered? -> mapcentralstation@gmail.com --- --- --- --- The Overviewer 1.15.95</p>
     </div>
-    <div id="leftArrPhoto" class="clickable"></div>
-    <div id="rightArrPhoto" class="clickable"></div>
 </body> 
 
 <script>
-    var showing = document.getElementById('test');
+    var backImage = document.getElementById('backImg1');
+    var backImage2 = document.getElementById('backImg2');
+
+    var OCZlink = document.getElementById('OCZ');
+
+    var RBPlink = document.getElementById('RBP');
+
+    var btns = document.getElementsByClassName('clickable');
+
+    var showing = OCZlink;
+    var showCount = 0;
+    var maxShow = 1;
+
+    if (showing == OCZlink) {
+        showCount = 0;
+        RBPlink.style.display = "none";
+    } else if (showing == RBPlink) {
+        showCount = 1;
+        OCZlink.style.display = "none";
+    }
+
+    $(document).ready(function () {
+        $(showing).insertBefore('#bottomBar').fadeIn(250);
+        backgroundGen();
+    })
+
+    function mapLesser() {
+        $(showing).fadeOut(250);
+        $(btns).fadeOut(50);
+        if (showCount - 1 < 0) {
+            showCount = mapShow;
+        } else {
+            showCount -= 1;
+        }
+
+        setInterval(function() {
+            if (showCount == 0) {
+                showing = OCZlink;
+                $(showing).insertBefore('#bottomBar').fadeIn(250);
+            } else if (showCount == 1) {
+                showing = RBPlink;
+                $(showing).insertBefore('#bottomBar').fadeIn(250);
+            }
+            if (showing == OCZlink) {
+                showCount = 0;
+                $(RBPlink).detach('body');
+            } else if (showing == RBPlink) {
+                showCount = 1;
+                $(OCZlink).detach('body');
+            }
+            backgroundGen();
+        }, 400);
+
+        setInterval(function() {
+            $(btns).fadeIn(50);
+        }, 1200);
+    }
+
+    function mapGreater() {
+        $(showing).fadeOut(250);
+        $(btns).fadeOut(50);
+        if (showCount + 1 > maxShow) {
+            showCount = 0;
+        } else {
+            showCount += 1;
+        }
+
+        setInterval(function() {
+            if (showCount == 0) {
+                showing = OCZlink;
+                $(showing).insertBefore('#bottomBar').fadeIn(250);
+            } else if (showCount == 1) {
+                showing = RBPlink;
+                $(showing).insertBefore('#bottomBar').fadeIn(250);
+            }
+            if (showing == OCZlink) {
+                showCount = 0;
+                $(RBPlink).detach('body');
+            } else if (showing == RBPlink) {
+                showCount = 1;
+                $(OCZlink).detach('body');
+            }
+            backgroundGen();
+        }, 400);
+
+        setInterval(function() {
+            $(btns).fadeIn(50);
+        }, 1200);
+    }
+
+    function backgroundGen() {
+        if (showing == OCZlink) {
+            backImage2.style.display = "none";
+            backImage.style.display = "block";
+        }
+        if (showing == RBPlink) {
+            backImage.style.display = "none";
+            backImage2.style.display = "block";
+        }
+    }
 </script>
 </html>

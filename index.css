@@ -9,11 +9,8 @@ body {
     background-color: rgb(36, 36, 36);
     font-family: art-deco-custom;
     font-size: 100px;
+    overflow: hidden;
 }
-
-a {
-    
-} 
 
 .text {
     background: -webkit-linear-gradient(rgb(243, 228, 169), rgb(211, 183, 68));
@@ -32,9 +29,20 @@ a {
     z-index: -1;
 }
 
-#titleText {
+.clickableText {
     position: absolute;
     bottom: 30px;
+    background: -webkit-linear-gradient(rgb(243, 228, 169), rgb(211, 183, 68));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.clickableText:hover {
+    background: -webkit-linear-gradient(rgb(173, 154, 75), rgb(145, 118, 11));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #leftArrMap {
@@ -87,4 +95,24 @@ a {
     position: absolute;
     top: -40px;
     right: 10px;
+}
+
+#backImg1 {
+    position: absolute;
+    z-index: -3;
+    height: 100%;
+    width: 100%;
+    bottom: 40px;
+    background-size: 100%;
+    background-position-y: bottom;
+}
+
+#backImg2 {
+    position: absolute;
+    z-index: -3;
+    height: 100%;
+    width: 100%;
+    bottom: 40px;
+    background-size: 100%;
+    background-position-y: bottom;
 }
