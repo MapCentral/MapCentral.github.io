@@ -86,6 +86,7 @@ body {
     position: absolute;
     top: -40px;
     left: 10px;
+    user-select: none;
 }
 
 .innerText2 {
@@ -95,6 +96,7 @@ body {
     position: absolute;
     top: -40px;
     right: 10px;
+    user-select: none;
 }
 
 #backImg1 {
