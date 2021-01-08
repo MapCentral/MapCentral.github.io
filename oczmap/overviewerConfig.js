@@ -55,15 +55,15 @@ var overviewerConfig = {
             "poititle": "Markers",
             "showlocationmarker": true,
             "center": [
-                -256,
-                86,
-                176
+                3,
+                64,
+                -329
             ],
             "minZoom": 0,
             "spawn": [
-                -256,
-                86,
-                176
+                3,
+                64,
+                -329
             ],
             "north_direction": 0
         }
